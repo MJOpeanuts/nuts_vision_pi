@@ -21,10 +21,18 @@ export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-xcb}"
 
 # ── Environnement virtuel ─────────────────────────────────────────────────────
 VENV_DIR="$SCRIPT_DIR/venv"
+VENV_FALLBACK_DIR="$HOME/.local/share/nuts_vision_pi/venv"
 
 if [[ ! -f "$VENV_DIR/bin/activate" ]]; then
     echo "[nuts_vision_pi] Création de l'environnement virtuel..."
-    python3 -m venv --system-site-packages "$VENV_DIR"
+    if ! python3 -m venv --system-site-packages "$VENV_DIR" 2>/dev/null; then
+        # The filesystem (e.g. FAT32 on a USB key) does not support symlinks.
+        # Fall back to a writable location on the local drive.
+        VENV_DIR="$VENV_FALLBACK_DIR"
+        echo "[nuts_vision_pi] Repli sur $VENV_DIR (système de fichiers non POSIX)..."
+        mkdir -p "$VENV_DIR"
+        python3 -m venv --system-site-packages "$VENV_DIR"
+    fi
 fi
 
 # shellcheck source=/dev/null

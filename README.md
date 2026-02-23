@@ -97,8 +97,17 @@ cp nuts_vision_pi.desktop ~/Desktop/
 chmod +x ~/Desktop/nuts_vision_pi.desktop
 ```
 
-> **Note :** Si le projet n'est pas dans `/home/pi/nuts_vision_pi`, modifiez
-> les lignes `Exec=` et `Path=` du fichier `.desktop` en conséquence.
+#### Option D – depuis la clé USB (sans installation)
+
+1. Branchez la clé USB contenant le dossier `nuts_vision_pi/`.
+2. Ouvrez le gestionnaire de fichiers et naviguez jusqu'à `nuts_vision_pi/`.
+3. Double-cliquez sur `nuts_vision_pi.desktop`.
+
+Le fichier `.desktop` détecte automatiquement son emplacement grâce au champ
+`%k` : il n'y a **rien à modifier**. Si la clé est formatée en FAT32,
+`launch.sh` crée l'environnement virtuel dans
+`~/.local/share/nuts_vision_pi/venv/` (sur la microSD) pour contourner
+l'absence de liens symboliques sur FAT32.
 
 #### Option C – lanceur classique
 
