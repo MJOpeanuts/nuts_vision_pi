@@ -1,0 +1,10 @@
+# Raspberry Pi 4 / aarch64 dependencies for nuts_vision_pi
+# Install system packages first (see README.md)
+
+PyQt6>=6.4.0
+opencv-python-headless>=4.7.0
+numpy>=1.23.0
+onnxruntime>=1.14.0
+Pillow>=9.4.0
+# picamera2 is installed via apt on Raspberry Pi OS:
+#   sudo apt install -y python3-picamera2
