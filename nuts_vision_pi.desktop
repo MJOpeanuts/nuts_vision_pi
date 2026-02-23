@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Nuts Vision Pi
+Comment=Détection de composants électroniques (IC detector)
+# Modifiez les deux lignes ci-dessous si le projet n'est pas dans /home/pi/nuts_vision_pi
+Exec=/home/pi/nuts_vision_pi/launch.sh
+Path=/home/pi/nuts_vision_pi
+Icon=camera-photo
+Terminal=true
+Categories=Science;Education;
+StartupNotify=true

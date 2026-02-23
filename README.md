@@ -77,6 +77,31 @@ pip install -r requirements.txt
 
 ### 3. Lancement
 
+#### Option A – lanceur tout-en-un (recommandé)
+
+```bash
+chmod +x launch.sh
+./launch.sh
+```
+
+`launch.sh` crée automatiquement le virtualenv, installe les dépendances si
+nécessaire, puis démarre l'application. Vous pouvez le double-cliquer depuis
+le gestionnaire de fichiers de Raspberry Pi OS.
+
+#### Option B – raccourci bureau (`.desktop`)
+
+Copiez `nuts_vision_pi.desktop` sur le bureau du Raspberry Pi :
+
+```bash
+cp nuts_vision_pi.desktop ~/Desktop/
+chmod +x ~/Desktop/nuts_vision_pi.desktop
+```
+
+> **Note :** Si le projet n'est pas dans `/home/pi/nuts_vision_pi`, modifiez
+> les lignes `Exec=` et `Path=` du fichier `.desktop` en conséquence.
+
+#### Option C – lanceur classique
+
 ```bash
 chmod +x run_pi.sh
 ./run_pi.sh
